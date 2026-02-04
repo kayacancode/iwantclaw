@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>IWantClaw — White-Glove OpenClaw Deployment for Founders & Exec Teams</title>
+    <meta name="description" content="Professional OpenClaw deployment and managed care for companies with 4–50 employees. In-person (Chicagoland, Ohio, Indiana, NYC, Memphis, Nashville) or remote worldwide."/>
+    <meta name="keywords" content="OpenClaw setup,OpenClaw deployment,AI assistant enterprise,managed AI service,OpenClaw security hardening,executive AI assistant,Chicago,Ohio,Indiana,NYC,Memphis,Nashville"/>
+    <meta name="theme-color" content="#0a0a0a"/>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+    <link rel="canonical" href="https://iwantclaw.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
+        html { -webkit-text-size-adjust: 100%; tab-size: 4; line-height: 1.5; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #ededed;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        a { color: inherit; text-decoration: inherit; }
+        img, svg, video { display: block; max-width: 100%; height: auto; vertical-align: middle; }
+        button, input, select, textarea { font: inherit; color: inherit; }
+        ol, ul { list-style: none; }
+        h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+
+        :root {
+            --muted: #b4b4b4;
+            --zinc-400: #9f9fa9;
+            --zinc-500: #71717b;
+            --zinc-600: #52525c;
+            --zinc-700: #3f3f46;
+            --zinc-800: #27272a;
+            --zinc-900: #18181b;
+        }
+
+        .text-muted { color: var(--muted); }
+        .text-white { color: #fff; }
+        .text-zinc-400 { color: var(--zinc-400); }
+        .text-zinc-500 { color: var(--zinc-500); }
+
+        .ring-shadow {
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.22), 0 1px 2px rgba(0,0,0,0.16), 0 0 0 1px #000;
+        }
+        .ring-shadow-hover:hover {
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.35), 0 1px 2px rgba(0,0,0,0.16), 0 0 0 1px #000;
+        }
+
+        .code-pill {
+            font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+            background-color: #0a0a0a;
+            border-radius: 6px;
+            padding: 2px 6px;
+            font-size: 0.875em;
+            font-weight: 500;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.22), 0 1px 2px rgba(0,0,0,0.16), 0 0 0 1px #000;
+        }
+
+        /* Layout */
+        .wrapper { display: flex; min-height: 100vh; flex-direction: column; align-items: center; justify-content: flex-start; }
+        .main { width: 100%; max-width: 36rem; padding: 3.5rem 1.5rem 4rem; }
+        @media (min-width: 768px) { .main { padding-top: 5rem; padding-bottom: 6rem; } }
+
+        /* Top banner */
+        .top-banner {
+            display: flex; width: 100%; align-items: center; justify-content: center; gap: 0.5rem;
+            background: rgb(19,19,22); padding: 0.5rem 1rem;
+            font-size: 13px; font-weight: 500; color: #fff;
+            transition: background-color 0.15s;
+        }
+        .top-banner:hover { background: rgb(28,28,32); }
+        .top-banner svg { opacity: 0.5; }
+
+        /* Sections */
+        .section { margin-bottom: 3.5rem; }
+        .section-title {
+            margin-bottom: 1rem; font-size: 0.75rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted);
+        }
+        .section-sub {
+            font-size: 0.75rem; font-weight: 500; text-transform: uppercase;
+            letter-spacing: 0.05em; color: var(--zinc-500); margin-bottom: 0.75rem;
+        }
+
+        /* Hero */
+        .hero-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .hero-title { font-size: 1.875rem; font-weight: 600; color: #fff; letter-spacing: -0.05em; }
+        .hero-desc { font-size: 1rem; line-height: 1.75rem; color: var(--muted); }
+        .hero-desc .white { color: #fff; font-weight: 500; }
+
+        /* Blockquotes */
+        .quotes { display: flex; flex-direction: column; gap: 1rem; }
+        .quote { border-left: 2px solid var(--zinc-700); padding-left: 1rem; }
+        .quote p { font-size: 0.875rem; line-height: 1.625; color: var(--muted); }
+        .quote footer { margin-top: 0.375rem; font-size: 0.75rem; color: var(--zinc-500); }
+        .quote footer a { color: var(--zinc-400); transition: color 0.15s; }
+        .quote footer a:hover { color: #fff; }
+
+        /* Pricing rows */
+        .pricing-space { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 0.5rem; }
+        .pricing-row {
+            display: flex; align-items: baseline; justify-content: space-between;
+            border-radius: 0.5rem; padding: 1rem 1.25rem;
+            transition: all 0.15s;
+        }
+        .pricing-row .label { font-size: 0.875rem; font-weight: 500; color: #fff; }
+        .pricing-row .desc { margin-top: 0.125rem; font-size: 0.75rem; color: var(--muted); }
+        .pricing-row .price { font-size: 1.125rem; font-weight: 600; color: #fff; font-variant-numeric: tabular-nums; white-space: nowrap; }
+        .pricing-row .price-unit { font-size: 0.875rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+        .price-group { display: flex; align-items: baseline; gap: 0.25rem; }
+
+        /* CTA button */
+        .cta-btn {
+            display: block; width: 100%; border-radius: 0.5rem;
+            background: #fff; padding: 0.75rem 1rem;
+            text-align: center; font-size: 0.875rem; font-weight: 500; color: #000;
+            transition: background-color 0.15s;
+        }
+        .cta-btn:hover { background: #e4e4e7; }
+
+        /* Talk row */
+        .talk-row {
+            display: flex; align-items: center; gap: 1rem;
+            border-radius: 0.5rem; padding: 1rem 1.25rem;
+            transition: all 0.15s; margin-top: 1.5rem;
+        }
+        .talk-avatar { width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: var(--zinc-700); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+        .talk-row .flex-1 { flex: 1; }
+        .talk-row .name { font-size: 0.875rem; font-weight: 500; color: #fff; }
+        .talk-row .subdesc { margin-top: 0.125rem; font-size: 0.75rem; color: var(--muted); }
+        .talk-row .handle { font-size: 0.875rem; font-weight: 500; color: #fff; white-space: nowrap; }
+
+        /* Footnotes */
+        .footnotes { display: flex; flex-direction: column; gap: 0.25rem; margin-top: 1.5rem; margin-bottom: 3.5rem; }
+        .footnotes p { font-size: 0.75rem; color: var(--muted); }
+        .footnotes a { color: #fff; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--zinc-700); }
+        .footnotes a:hover { text-decoration-color: var(--zinc-400); }
+
+        /* Where we operate */
+        .areas { display: flex; flex-direction: column; gap: 1rem; }
+        .area-label { font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--zinc-500); margin-bottom: 0.375rem; }
+        .area-cities { font-size: 0.875rem; color: #fff; line-height: 1.625; }
+        .area-note { font-size: 0.75rem; color: var(--zinc-500); margin-top: 0.25rem; }
+
+        /* How it works */
+        .steps { display: flex; flex-direction: column; gap: 1rem; }
+        .step { display: flex; gap: 0.75rem; }
+        .step-num { font-size: 0.75rem; font-weight: 500; color: var(--zinc-500); width: 1rem; flex-shrink: 0; }
+        .step .step-title { font-size: 0.875rem; font-weight: 500; color: #fff; }
+        .step .step-desc { font-size: 0.75rem; color: var(--muted); margin-top: 0.125rem; }
+
+        /* FAQ */
+        .faq-list { display: flex; flex-direction: column; gap: 1.5rem; }
+        .faq-item h3 { font-size: 0.875rem; font-weight: 500; color: #fff; }
+        .faq-item p { margin-top: 0.375rem; font-size: 0.875rem; line-height: 1.625; color: var(--muted); }
+
+        /* Security list */
+        .sec-list { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; color: var(--muted); }
+        .sec-list li { display: flex; gap: 0.5rem; }
+        .sec-list .bullet { color: var(--zinc-500); }
+        .sec-list .bold { color: #fff; }
+
+        /* Waitlist forms */
+        .form-group { display: flex; flex-direction: column; gap: 1rem; }
+        .form-input {
+            width: 100%; border-radius: 0.5rem; background: transparent;
+            padding: 0.625rem 1rem; font-size: 0.875rem; color: #fff;
+            transition: box-shadow 0.15s;
+        }
+        .form-input::placeholder { color: var(--zinc-500); }
+        .form-input:focus { outline: none; box-shadow: 0 0 0 2px var(--zinc-400), 0 0 0 4px #09090b; }
+        .form-grid { display: grid; gap: 1rem; }
+        @media (min-width: 640px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+        textarea.form-input { resize: none; }
+
+        /* Footer */
+        .footer { border-top: 1px solid var(--zinc-800); padding-top: 2rem; padding-bottom: 1rem; }
+        .footer p { font-size: 0.75rem; color: var(--muted); }
+        .footer a { color: #fff; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--zinc-700); }
+        .footer a:hover { text-decoration-color: var(--zinc-400); }
+        .footer-links { margin-top: 1rem; display: flex; gap: 1rem; }
+        .footer-links a { font-size: 0.75rem; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+        .footer-links a:hover { color: #fff; }
+
+        /* Press */
+        .press { margin-top: 1rem; font-size: 0.75rem; color: var(--zinc-500); }
+        .press a { color: var(--zinc-400); transition: color 0.15s; }
+        .press a:hover { color: #fff; }
+
+        /* Link style */
+        .link-underline { color: #fff; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--zinc-700); }
+        .link-underline:hover { text-decoration-color: var(--zinc-400); }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Top Banner -->
+        <a href="https://cal.com/kaya-jones-xpw7sr/setup-openclaw" target="_blank" rel="noopener noreferrer" class="top-banner">
+            <span>Chicagoland · Ohio · Indiana · NYC · Memphis · Nashville — in-person + remote worldwide</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6.5 3.5L11 8L6.5 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
+        <main class="main">
+            <!-- Hero -->
+            <div class="section">
+                <div class="hero-row">
+                    <div style="width:48px;height:48px;border-radius:12px;background:#dc2626;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">🦞</div>
+                    <h1 class="hero-title">iwantclaw</h1>
+                </div>
+                <p class="hero-desc">
+                    White-glove <a href="https://openclaw.ai" target="_blank" rel="noopener noreferrer"><code class="code-pill">OpenClaw</code></a> deployment for founders and exec teams. We professionally deploy and maintain the AI assistant that clears your inbox, manages your calendar, and actually does work — on your hardware, with security hardening and ongoing care. Built for companies with <span class="white">4–50+ employees</span> where the CEO/CFO/Head of Sales needs leverage without creating new security risk.
+                </p>
+            </div>
+
+            <!-- What's an Executive Agent -->
+            <div class="section">
+                <h2 class="section-title">What's an "Executive Agent"?</h2>
+                <p style="font-size:0.875rem;line-height:1.625;color:var(--muted);">
+                    <span class="text-white" style="font-weight:500;">1 Executive Agent = 1 OpenClaw instance</span> configured for one primary identity (CEO inbox/calendar, CFO inbox, Head of Sales, shared EA inbox). This keeps pricing fair and security boundaries clean. Most 4–50 employee teams deploy <span class="text-white">2–6 agents</span>.
+                </p>
+            </div>
+
+            <!-- Social Proof -->
+            <div class="section">
+                <h2 class="section-title">What people are saying about OpenClaw</h2>
+                <div class="quotes">
+                    <blockquote class="quote">
+                        <p>"Genuinely the most incredible sci-fi takeoff-adjacent thing I have seen recently."</p>
+                        <footer>— <a href="https://x.com/karpathy" target="_blank" rel="noopener noreferrer">Andrej Karpathy</a>, former Director of AI at Tesla</footer>
+                    </blockquote>
+                    <blockquote class="quote">
+                        <p>"It feels like hiring an employee rather than opening another chat window."</p>
+                        <footer>— <a href="https://www.macstories.net/stories/clawdbot-showed-me-what-the-future-of-personal-ai-assistants-looks-like/" target="_blank" rel="noopener noreferrer">MacStories</a></footer>
+                    </blockquote>
+                    <blockquote class="quote">
+                        <p>"Within an hour it had built a fully featured kanban board where I could assign it tasks and track their state."</p>
+                        <footer>— <a href="https://www.macstories.net/stories/clawdbot-showed-me-what-the-future-of-personal-ai-assistants-looks-like/" target="_blank" rel="noopener noreferrer">MacStories</a> review</footer>
+                    </blockquote>
+                    <blockquote class="quote">
+                        <p>"One user cleared nearly 6,000 emails from their inbox on the first day."</p>
+                        <footer>— <a href="https://www.turingcollege.com/blog/openclaw" target="_blank" rel="noopener noreferrer">Turing College</a></footer>
+                    </blockquote>
+                </div>
+                <p class="press">
+                    OpenClaw featured in
+                    <a href="https://www.macstories.net/stories/clawdbot-showed-me-what-the-future-of-personal-ai-assistants-looks-like/" target="_blank" rel="noopener noreferrer">MacStories</a>,
+                    <a href="https://www.fastcompany.com/91484506/what-is-clawdbot-moltbot-openclaw" target="_blank" rel="noopener noreferrer">Fast Company</a>,
+                    <a href="https://www.ibm.com/think/news/clawdbot-ai-agent-testing-limits-vertical-integration" target="_blank" rel="noopener noreferrer">IBM</a>, and
+                    <a href="https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare" target="_blank" rel="noopener noreferrer">Cisco</a>
+                </p>
+            </div>
+
+            <!-- Why not DIY -->
+            <div class="section">
+                <h2 class="section-title">Why not just set it up yourself?</h2>
+                <p style="font-size:0.875rem;line-height:1.625;color:var(--muted);">
+                    You can — OpenClaw is open-source. But most compromises come from misconfiguration, not sophisticated attacks. <a class="link-underline" href="https://blogs.cisco.com/ai/personal-ai-agents-like-openclaw-are-a-security-nightmare" target="_blank" rel="noopener noreferrer">Cisco found</a> that 26% of community-built skills contain vulnerabilities. We follow the official hardening guide so you don't have to.
+                </p>
+            </div>
+
+            <!-- Pricing -->
+            <div style="margin-bottom:0.5rem;">
+                <div style="margin-bottom:0.5rem;">
+                    <p class="section-sub">Implementation</p>
+                </div>
+                <div class="pricing-space">
+                    <a href="https://cal.com/kaya-jones-xpw7sr/setup-openclaw" target="_blank" rel="noopener noreferrer" class="pricing-row ring-shadow ring-shadow-hover">
+                        <div>
+                            <p class="label">In-person</p>
+                            <p class="desc">Chicagoland, Ohio, Indiana, NYC, Memphis, Nashville — first agent + hardening + 14-day hypercare</p>
+                        </div>
+                        <p class="price">$1,600</p>
+                    </a>
+                    <a href="https://cal.com/kaya-jones-xpw7sr/setup-openclaw" target="_blank" rel="noopener noreferrer" class="pricing-row ring-shadow ring-shadow-hover">
+                        <div>
+                            <p class="label">Remote</p>
+                            <p class="desc">Anywhere — first agent + hardening + 14-day hypercare</p>
+                        </div>
+                        <p class="price">$800</p>
+                    </a>
+                    <a href="https://cal.com/kaya-jones-xpw7sr/setup-openclaw" target="_blank" rel="noopener noreferrer" class="pricing-row ring-shadow ring-shadow-hover">
+                        <div>
+                            <p class="label">Additional Executive Agent</p>
+                            <p class="desc">CEO, EA, Sales, Finance — deploy your exec team</p>
+                        </div>
+                        <div class="price-group">
+                            <p class="price">+$800</p>
+                            <p class="price-unit">each</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="margin-top:1.5rem;margin-bottom:0.5rem;">
+                    <p class="section-sub">Managed Care</p>
+                </div>
+                <div class="pricing-space">
+                    <a href="https://cal.com/kaya-jones-xpw7sr/setup-openclaw" target="_blank" rel="noopener noreferrer" class="pricing-row ring-shadow ring-shadow-hover">
+                        <div>
+                            <p class="label">Care Standard</p>
+                            <p class="desc">Up to 2 agents, monitoring, support, 2 hrs/mo included</p>
+                        </div>
+                        <div class="price-group">
+                            <p class="price">$1,250</p>
+                            <p class="price-unit">/mo</p>
+                        </div>
+                    </a>
+                    <a href="https://cal.com/kaya-jones-xpw7sr/setup-openclaw" target="_blank" rel="noopener noreferrer" class="pricing-row ring-shadow ring-shadow-hover">
+                        <div>
+                            <p class="label">Care Plus</p>
+                            <p class="desc">Up to 5 agents, priority support, monthly review, 6 hrs/mo</p>
+                        </div>
+                        <div class="price-group">
+                            <p class="price">$2,500</p>
+                            <p class="price-unit">/mo</p>
+                        </div>
+                    </a>
+                    <a href="https://cal.com/kaya-jones-xpw7sr/setup-openclaw" target="_blank" rel="noopener noreferrer" class="pricing-row ring-shadow ring-shadow-hover">
+                        <div>
+                            <p class="label">Care Enterprise</p>
+                            <p class="desc">SLA, fleet standards, audit logs, security reviews</p>
+                        </div>
+                        <div class="price-group">
+                            <p class="price-unit">from</p>
+                            <p class="price">$5,000</p>
+                            <p class="price-unit">/mo</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Book a call CTA -->
+                <a href="https://cal.com/kaya-jones-xpw7sr/setup-openclaw" target="_blank" rel="noopener noreferrer" class="cta-btn" style="margin-top:1.5rem;">Book a free call →</a>
+
+                <!-- Talk row -->
+                <a href="https://x.com/kayacancode" target="_blank" rel="noopener noreferrer" class="talk-row ring-shadow ring-shadow-hover">
+                    <div class="talk-avatar">🫧</div>
+                    <div class="flex-1">
+                        <p class="name">Talk to Kaya</p>
+                        <p class="subdesc">DM me on Twitter — happy to answer any questions</p>
+                    </div>
+                    <p class="handle">@kayacancode →</p>
+                </a>
+            </div>
+
+            <!-- Footnotes -->
+            <div class="footnotes">
+                <p>Hardware at cost or bring your own. Mac mini required for iMessage.</p>
+                <p>Implementation includes 14-day hypercare. Ongoing support requires Managed Care.</p>
+                <p>Not sure which plan? <a href="https://cal.com/kaya-jones-xpw7sr/setup-openclaw" target="_blank" rel="noopener noreferrer">Book a free call →</a></p>
+            </div>
+
+            <!-- Where we operate -->
+            <div class="section">
+                <h2 class="section-title">Where we operate</h2>
+                <div class="areas">
+                    <div>
+                        <p class="area-label">In-person</p>
+                        <p class="area-cities">Chicagoland (Chicago + suburbs) · Ohio · Indiana · New York City · Memphis, TN · Nashville, TN</p>
+                        <p class="area-note">Expanding to more cities soon via licensed operators</p>
+                    </div>
+                    <div>
+                        <p class="area-label">Remote</p>
+                        <p style="font-size:0.875rem;color:var(--muted);line-height:1.625;">Available worldwide — we deploy on your hardware or VPS over a call</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How it works -->
+            <div class="section">
+                <h2 class="section-title">How it works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <span class="step-num">1</span>
+                        <div>
+                            <p class="step-title">Kickoff</p>
+                            <p class="step-desc">Goals, systems (Google/Microsoft), security posture</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">2</span>
+                        <div>
+                            <p class="step-title">Implementation</p>
+                            <p class="step-desc">Install + harden + connect integrations + build workflows</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">3</span>
+                        <div>
+                            <p class="step-title">Go-live</p>
+                            <p class="step-desc">You start using it the same day</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">4</span>
+                        <div>
+                            <p class="step-title">Hypercare</p>
+                            <p class="step-desc">14 days of fast fixes and tuning</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">5</span>
+                        <div>
+                            <p class="step-title">Managed Care</p>
+                            <p class="step-desc">Monitoring, updates, drift checks, and ongoing improvements</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top:1rem;font-size:0.75rem;color:var(--zinc-500);">Most companies are 5–8 hours all-in, especially with multiple agents.</p>
+            </div>
+
+            <!-- FAQ -->
+            <div class="section">
+                <h2 class="section-title">FAQ</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>What is OpenClaw?</h3>
+                        <p>An open-source AI assistant that can triage email, schedule meetings, draft replies, and automate workflows across your tools — running on your own hardware.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What's included in implementation?</h3>
+                        <p>Install + hardening, email + calendar integration, up to 3 mission-critical workflows, documentation, and 14-day hypercare. For in-person deployments, we come to your location.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How long does setup take?</h3>
+                        <p>Expect 5–8 hours all-in for most teams (more with multi-agent rollouts). You go live the same day, typically across one or two sessions.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Do you offer support after setup?</h3>
+                        <p>Implementation includes 14-day hypercare. For ongoing monitoring, updates, and support, you'll need a Managed Care plan.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is OpenClaw safe to run?</h3>
+                        <p>It's never 100% safe — it's an AI with access to your email and calendar. The bigger risk is your InfoSec or CISO blocking it as shadow AI before you get any value from it. We configure it to pass security review: audit trails, access controls, hardening. We help you make the decisions necessary to get it to production instead of stuck in compliance limbo.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What access do you need during setup?</h3>
+                        <p>Temporary access to the machine/network and the accounts you're connecting (email, calendar, messaging). We use least privilege and recommend credential rotation after go-live.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Do you do multi-agent deployments?</h3>
+                        <p>Yes — this is the common case for 4–50 employee teams. We'll help decide which roles need their own agent vs shared workflows.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security -->
+            <div class="section">
+                <h2 class="section-title">Security & your data</h2>
+                <p style="font-size:0.875rem;line-height:1.625;color:var(--muted);margin-bottom:1rem;">
+                    OpenClaw runs locally — your data stays on your hardware. We follow the <a class="link-underline" href="https://docs.openclaw.ai/gateway/security" target="_blank" rel="noopener noreferrer">official hardening guide</a>:
+                </p>
+                <ul class="sec-list">
+                    <li><span class="bullet">•</span><span><span class="bold">Inbound access locked</span> — DM pairing, mention-gating in groups, explicit allowlists</span></li>
+                    <li><span class="bullet">•</span><span><span class="bold">Network exposure minimized</span> — loopback-only binding, no public endpoints</span></li>
+                    <li><span class="bullet">•</span><span><span class="bold">Tool blast radius limited</span> — elevated tools restricted, sandboxing enabled</span></li>
+                    <li><span class="bullet">•</span><span><span class="bold">File permissions set</span> — credentials and config locked to your user</span></li>
+                    <li><span class="bullet">•</span><span><span class="bold">Credentials in env vars</span> — not in prompts, redacted from logs</span></li>
+                    <li><span class="bullet">•</span><span><span class="bold">Plugins explicitly allowed</span> — no third-party or unaudited code</span></li>
+                    <li><span class="bullet">•</span><span><span class="bold">Security audit before handoff</span> — you can re-run it anytime</span></li>
+                </ul>
+            </div>
+
+            <!-- Managed Waitlist -->
+            <div class="section">
+                <h2 class="section-title">Want us to handle everything?</h2>
+                <p style="font-size:0.875rem;color:var(--muted);margin-bottom:1.25rem;">We're building a fully managed option — we host and maintain OpenClaw on a private server for you. No hardware, no terminal, no maintenance. Just tell it what to do.</p>
+                <a href="mailto:kayarjones901@gmail.com?subject=IWantClaw%20-%20Managed%20Hosting%20Interest&body=Hi%20Kaya%2C%0A%0AI'm%20interested%20in%20fully%20managed%20OpenClaw%20hosting.%0A%0AWhat%20I'd%20want%20it%20to%20handle%3A%0A%0A" class="cta-btn">Join the managed waitlist →</a>
+            </div>
+
+            <!-- City Waitlist -->
+            <div class="section">
+                <h2 class="section-title">Not in our area?</h2>
+                <p style="font-size:0.875rem;color:var(--muted);margin-bottom:1.25rem;">We're expanding in-person setups to new cities via licensed operators. Let us know your city and we'll reach out when we're there.</p>
+                <a href="mailto:kayarjones901@gmail.com?subject=IWantClaw%20-%20Waitlist%20for%20My%20City&body=Hi%20Kaya%2C%0A%0AI'd%20love%20in-person%20OpenClaw%20setup%20in%20my%20area.%0A%0ACity%3A%20%0AWhat%20I'd%20use%20it%20for%3A%0A%0A" class="cta-btn">Join the waitlist →</a>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>Questions? <a href="https://cal.com/kaya-jones-xpw7sr/setup-openclaw" target="_blank" rel="noopener noreferrer">Book a call</a> or DM <a href="https://x.com/kayacancode" target="_blank" rel="noopener noreferrer">@kayacancode</a></p>
+                <div class="footer-links">
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
